@@ -1,0 +1,111 @@
+body {background-color: #3b3e86;}
+
+.counters{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.row{
+    display: flex; flex-direction: row; align-items: center;
+    justify-content: space-between; width: 100%;
+}
+
+.column{width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+
+.weirdass{
+    background-color: #3e9f85;
+    color:#ffffff;
+    padding:10px;
+    font-family: arial;
+    text-align: center;
+    border-radius:5px;
+    box-shadow: 4px 4px #24574b;
+    width: min-content;
+    margin:auto;
+    margin-bottom: 10px;
+}
+
+/* may have the same styling but are separate IDs just for javascript selction */
+#characterCounter, #bossCounter, #cryoCounter{
+    background-color:#3e9f85;box-shadow: 4px 4px #24574b;
+    border-radius: 5px;padding: 10px; color: #ffffff;
+}
+
+#roundCounterbtn{
+    background-color:#3e9f85;box-shadow: 4px 4px #24574b;
+    border-radius: 5px;padding: 10px; color: #ffffff;
+    display: none; font-family:Segoe UI;
+    font-size: 20px;}
+
+.content{
+    max-width: 600px;
+    padding:20px;
+    margin:auto;
+    justify-content: center;
+    align-items: center;}
+h2 {
+    background-color: #3e9f85;
+    color:#ffffff;
+    padding:10px;
+    font-family: arial;
+    text-align: center;
+    border-radius:5px;
+    box-shadow: 4px 4px #24574b;}
+
+.btn:hover::after{
+    /* door animation with only hover
+    box-shadow: inset -10.5em 0 0 0 #3e9f85, -10.5em 0 0 0 #3e9f85,;
+    background-color: inset -10.5em 0 0 0 #3e9f85, -10.5em 0 0 0 #3e9f85,; */
+    width: 100%;
+}
+
+.btn{
+    height:50px;
+    width:150px;
+    font-size: 18px;
+    color:#ffffff;
+    background-color: #24574b;
+    box-shadow: 4px 4px #4b3522;
+    padding: 5px;
+    border-radius: 5px;} /* #3b3e86 */
+
+.card{
+    padding:15px 30px 15px 30px;
+    /* max-width:500px;
+    max-height:300px; */
+    text-align: center;
+    background-color: #e8dcbf;
+    border-radius: 5px;
+    border-top: #3e9f85 5px;
+    margin-top: 20px;}
+
+.unused{
+    padding:15px 30px 15px 30px;
+    text-align: center;
+    background-color: #e8dcbf;
+    border-radius: 5px;
+    border-top: #3e9f85 5px;
+    margin-top: 20px;
+    display: block;
+}
+
+#teamdisplay{
+    padding:15px 30px 15px 30px;
+    text-align: center;
+    border-radius: 5px;
+    border-top: #3e9f85 5px;
+    margin-top: 20px;
+}
+
+#picdisplay {display: none;}
+#picdisplay1{display: none;}
+
+p{
+  font-family:Segoe UI;
+  font-size: 20px;}
+
+img{height:25px;width:25px;}
+
