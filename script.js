@@ -23,10 +23,6 @@ let generatedItemsList = [];
 
 let roundCount = 1;
 
-function removeResultDisplay() {
- document.querySelector(".unused").style.display = "none";
-}
-
 function updateCounters() {
  document.getElementById("characterCounter").innerHTML = "Characters left: " + charaList.length;
  document.getElementById("bossCounter").innerHTML = "Bosses left: " + bossList.length;
@@ -34,8 +30,7 @@ function updateCounters() {
 }
 
 function displayRoundCount() {
- document.getElementById("roundCounterbtn").style.display = "inline";
- yes = `Clear and proceed to next round`;
+ yes = ``;
  document.getElementById("roundCounterbtn").innerHTML = yes;
  idk = `<p>Round ${roundCount} of Genshin weekly</p>`;
  document.querySelector("#roundCountDisplay").innerHTML = idk;
@@ -157,7 +152,7 @@ function roundCounter() {
  roundCount++;
  document.getElementById("roundCountDisplay").innerHTML =
   `<p>Round ${roundCount} of Genshin Weekly`;
- removeResultDisplay();
+ document.querySelector(".unused").style.display = "none";
 }
 
 // function addToPrevGens(){

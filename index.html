@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <!-- <link rel="shortcut icon" href="icons/favicon.png"> -->
-    <title>每个礼拜的'原神'比赛 jenshin wikily</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+ <!-- <link rel="shortcut icon" href="icons/favicon.png"> -->
+ <title>每个礼拜的'原神'比赛 jenshin wikily</title>
 </head>
+
 <body>
-    <div class="content">
-        <div class="card">
-            <!-- <h2>Lazy ppl's Genshin weekly generator</h2> -->
-            <!-- <h2>每个礼拜的'原神'比赛 Genshin weekly generator</h2> -->
-            <h2 id="top">Genshin weekly generator</h2>
-            
-            <div class="weirdass">Counters</div>
-            <div class="counters">
-                <div id="characterCounter">Characters left: All</div>
-                <div id="bossCounter">Bosses left: All</div>
-                <div id="cryoCounter">Cryos left: All</div>
-            </div>
+ <div class="content">
+  <div class="card">
+   <!-- <h2>Lazy ppl's Genshin weekly generator</h2> -->
+   <!-- <h2>每个礼拜的'原神'比赛 Genshin weekly generator</h2> -->
+   <h2 id="top">Genshin weekly generator</h2>
 
-            <p style="font-size: smaller;">
-                抱歉！！！ sorry but theres no such thing as edit function yet so just type that as what you want lol
-            </p>
+   <div class="weirdass">Counters</div>
+   <div class="counters">
+    <div id="characterCounter">Characters left: All</div>
+    <div id="bossCounter">Bosses left: All</div>
+    <div id="cryoCounter">Cryos left: All</div>
+   </div>
 
-            <p>
-                <button onclick="ttest()">ttest</button>
-                <button onclick="window.location.href = 'viewGens.html';">testing View This Weekly's Rounds</button>
-            </p>
+   <p style="font-size: smaller;">
+    抱歉！！！ sorry but theres no such thing as edit function yet so just type that as what you want lol
+   </p>
 
-            <div class="row">
-                <div class="column">
-                    <p>Team A's characters</p>
-                    <button onclick="displayTeamA()" class="btn">Team A!!</button>
-                </div>
-                <div class="column">
-                    <p>Team B's characters</p>
-                    <button onclick="displayTeamB()" class="btn">Team B!!</button>
-                </div>
-            </div>
+   <p>
+    <button onclick="ttest()">ttest</button>
+    <button onclick="window.location.href = 'viewGens.html';">testing View This Weekly's Rounds</button>
+   </p>
 
-            <div class="row">
-                <div class="column">
-                    <p>Boss to throw hands</p>
-                    <button class="btn" onclick="genBoss()">bossu</button>
-                </div>
-                <div class="column">
-                    <p>Nerf players?</p>
-                    <button class="btn" onclick="genDebuff()">Nerf</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="column">        
-                    <p>Get cryo character?</p>
-                    <button class="btn" onclick="genCryo()">Cryo</button>
-                </div>
-                <div class="column">
-                    <p>Dare to roll d20?</p>
-                    <button class="btn" onclick="genD20()">Roll d20</button>
-                </div>
-            </div>
-            
-        </div>
-
-        <div id="roundDisplayerthing">
-            <div class="unused">
-                <p style="height: 20px;"><img id="picdisplay" src="icons/favicon.png"></p>
-                
-                <a href="#top" style="text-decoration: none;">
-                    <button onclick="roundCounter()" id="roundCounterbtn"></button>
-                </a>
-    
-                <div id="roundCountDisplay"></div>
-                <div id="teamA"></div>
-                <div id="teamB"></div>
-                <div id="boss"></div>
-                <div id="debuff"></div>
-                <div id="cryo"></div>
-                <div id="d20"></div>
-                <img id="picdisplay1" src="icons/favicon.png">
-            </div>
-        </div>
+   <div class="row">
+    <div class="column">
+     <p>Team A's characters</p>
+     <button onclick="displayTeamA()" class="btn">Team A!!</button>
     </div>
+    <div class="column">
+     <p>Team B's characters</p>
+     <button onclick="displayTeamB()" class="btn">Team B!!</button>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="column">
+     <p>Boss to throw hands</p>
+     <button class="btn" onclick="genBoss()">bossu</button>
+    </div>
+    <div class="column">
+     <p>Nerf players?</p>
+     <button class="btn" onclick="genDebuff()">Nerf</button>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="column">
+     <p>Get cryo character?</p>
+     <button class="btn" onclick="genCryo()">Cryo</button>
+    </div>
+    <div class="column">
+     <p>Dare to roll d20?</p>
+     <button class="btn" onclick="genD20()">Roll d20</button>
+    </div>
+   </div>
+
+  </div>
+
+  <div id="roundDisplayerthing">
+   <div class="unused">
+    <p style="height: 20px;"><img id="picdisplay" src="icons/favicon.png"></p>
+
+    <a href="#top" style="text-decoration: none;">
+     <button onclick="roundCounter()" id="roundCounterbtn">
+      Clear and proceed to next round
+     </button>
+    </a>
+
+    <div id="roundCountDisplay"></div>
+    <div id="teamA"></div>
+    <div id="teamB"></div>
+    <div id="boss"></div>
+    <div id="debuff"></div>
+    <div id="cryo"></div>
+    <div id="d20"></div>
+    <img id="picdisplay1" src="icons/favicon.png">
+   </div>
+  </div>
+ </div>
 </body>
 <script src="script.js"></script>
+
 </html>
