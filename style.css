@@ -89,7 +89,7 @@ h2 {
     border-radius: 5px;
     border-top: #3e9f85 5px;
     margin-top: 20px;
-    display: block;
+    display: none;
 }
 
 #teamdisplay{
