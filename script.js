@@ -15,7 +15,7 @@ let roundCount = 1;
 let genItemsList = [];
 // end of saving current round's items
 
-const randoChara = (listtt)=>{
+const randoChara = (listtt) => {
  var rni = Math.floor(Math.random() * listtt.length);
  const randEl = listtt[rni];
  listtt.splice(rni, 1);
@@ -28,17 +28,16 @@ function updateCounters() {
  document.getElementById("cryoCounter").innerHTML = "Cryo left: " + cryoList.length;
 }
 
-function genPossib(label, listName, reps){
+function genPossib(label, listName, reps) {
  var content = '';
- for (i=0;i<reps;i++){
+ for (i = 0; i < reps; i++) {
   // label would be like 'Team A: '
-  if (reps > 1){
+  if (reps > 1) {
    content += randoChara(listName) + ' & ';
-   if (i == reps-1)
-    { content = content.slice(0, content.length-3); }
+   if (i == reps - 1) { content = content.slice(0, content.length - 3); }
   } else { content = randoChara(listName); }
  }
- var h = '<p>'+ label + content+'</p>';
+ var h = '<p>' + label + content + '</p>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
@@ -46,10 +45,11 @@ function genPossib(label, listName, reps){
 function displayGenshinWeekly() {
  console.log(genItemsList);
  var longstr = '';
- for (e=0; e<genItemsList.length;e++){ longstr += genItemsList[e]; }
+ for (e = 0; e < genItemsList.length; e++) { longstr += genItemsList[e]; }
  html = longstr;
  document.querySelector(".unused").style.display = "block";
  document.querySelector('#jenshin-weekly').innerHTML = longstr;
+ html = longstr;
  quotation[0].style.display = "inline";
  quotation[1].style.display = "inline";
  idk = `<p>Round ${roundCount} of Genshin weekly</p>`;
@@ -57,45 +57,29 @@ function displayGenshinWeekly() {
  updateCounters();
 }
 
-// this is the function and the button that clears, adds current gen items, and updates the round
+// clears + updates round + stores current round
 function roundCounter() {
  genItemsList = [];
- // addToPrevGens();
+ addToPrevGens();
  document.querySelector(".unused").style.display = "none";
  roundCount++;
  document.getElementById("roundCountDisplay").innerHTML =
   `<p>Round ${roundCount} of Genshin Weekly`;
 }
 
-// function addToPrevGens(){
-//     if (dice == null) {
-//         currentRoundItems[roundCount] = {
-//             "teamACharas": [chara1A, chara2A,],
-//             "teamBCharas": [chara1B, chara2B],
-//             "boss": boss,
-//             "debuff": [debuffItem1, debuffItem2],
-//             "cryos": [cryo1,cryo2]
-//         };
-//     } else {
-//         currentRoundItems[roundCount] = {
-//             "teamACharas": [chara1A, chara2A,],
-//             "teamBCharas": [chara1B, chara2B],
-//             "boss": boss,
-//             "debuff": [debuffItem1, debuffItem2],
-//             "cryos": [cryo1,cryo2],
-//             "diceroll": dice,
-//         };
-//     }
+function addToPrevGens() {
+ currentRoundItems.push({roundCount: html});
+ localStorage.setItem('prevRounds', JSON.stringify(currentRoundItems));
+ html = '';
+ console.log(localStorage.getItem('prevRounds'));
+ // adding local storage here so that next page we can see the previous generations
+ // var myObject = JSON.stringify(currentRoundItems);
+ // localStorage.setItem('myObject', myObject);
+ // maybe add the round counter here? so that i can
+ // 1) continue the round count here
+ // 2) print out all object as many times as the total rounds
+}
 
-//     // adding local storage here so that next page we can see the previous generations
-//     var myObject = JSON.stringify(currentRoundItems);
-//     localStorage.setItem('myObject', myObject);
-//     // maybe add the round counter here? so that i can
-//     // 1) continue the round count here
-//     // 2) print out all object as many times as the total rounds
-// }
-
-//testing button
 function ttest() {
  console.log(currentRoundItems);
 
