@@ -11,7 +11,7 @@ let html = '';
 
 const quotation = document.getElementsByClassName('picdisplay');
 // saving current round's items
-let currentRoundItems = {}; // round count will be the key
+let currentRoundItems = []; // round count will be the key
 let genItemsList = [];
 // end of saving current round's items
 
@@ -39,26 +39,17 @@ function genPossib(label, listName, reps){
   // label would be like 'Team A: '
   if (reps > 1){
    content += randoChara(listName) + ' & ';
-   if (i == reps-1){
-    content = content.slice(0, content.length-3);
-   }
-  } else {
-   content = randoChara(listName);
-  }
+   if (i == reps-1)
+    { content = content.slice(0, content.length-3); }
+  } else { content = randoChara(listName); }
  }
  var h = '<p>'+ label + content+'</p>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
 
-genPossib('Team B: ', charaList, 2);
-// genPossib('Debuff for member 1: ', debuffList, 1);
-// genPossib('Debuff for member 2: ', debuffList, 1);
-genPossib('Cryo for member 1: ', cryoList, 1);
-genPossib('Cryo for member 2: ', cryoList, 1);
-console.log(genItemsList);
-
 function displayGenshinWeekly() {
+ console.log(genItemsList);
  var longstr = '';
  for (e=0; e<genItemsList.length;e++){
   longstr += genItemsList[e];
@@ -70,21 +61,6 @@ function displayGenshinWeekly() {
  quotation[1].style.display = "inline";
  idk = `<p>Round ${roundCount} of Genshin weekly</p>`;
  document.querySelector("#roundCountDisplay").innerHTML = idk;
- updateCounters();
-}
-
-function genD20() { // for some reason dice roll's output like the '3' cannot be read
- dice = Math.floor(Math.random() * 21);
- html = `<p>You rolled ${dice}!!!!</p>`;
-
- document.getElementById("teamdisplay").className = "unused";
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#d20').innerHTML = html;
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
  updateCounters();
 }
 

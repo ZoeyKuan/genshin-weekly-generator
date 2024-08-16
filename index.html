@@ -35,33 +35,41 @@
    <div class="row">
     <div class="column">
      <p>Team A's characters</p>
-     <button onclick="displayGenshinWeekly()" class="btn">Team A!!</button>
+     <button onclick="genPossib('Team A: ', charaList, 2);" class="btn">Team A!!</button>
     </div>
     <div class="column">
      <p>Team B's characters</p>
-     <button onclick="displayTeamB()" class="btn">Team B!!</button>
+     <button onclick="genPossib('Team B: ', charaList, 2);" class="btn">Team B!!</button>
     </div>
    </div>
 
    <div class="row">
     <div class="column">
      <p>Boss to throw hands</p>
-     <button class="btn" onclick="genBoss()">bossu</button>
+     <button class="btn" onclick="genPossib('Boss: ', bossList, 1);">bossu</button>
     </div>
     <div class="column">
      <p>Nerf players?</p>
-     <button class="btn" onclick="genDebuff()">Nerf</button>
+     <button class="btn" onclick="
+     genPossib('Debuff for member 1: ', debuffList, 1);
+     genPossib('Debuff for member 2: ', debuffList, 1);">Nerf</button>
     </div>
    </div>
 
    <div class="row">
     <div class="column">
      <p>Get cryo character?</p>
-     <button class="btn" onclick="genCryo()">Cryo</button>
+     <button class="btn" onclick="
+     genPossib('Cryo for member 1: ', cryoList, 1);
+     genPossib('Cryo for member 2: ', cryoList, 1);">Cryo</button>
     </div>
     <div class="column">
      <p>Dare to roll d20?</p>
-     <button class="btn" onclick="genD20()">Roll d20</button>
+     <button class="btn" onclick="
+     var dice = Math.floor(Math.random() * 21);
+     var h = '<p> You rolled '+dice+'!!</p>';
+     genItemsList.push(h); displayGenshinWeekly();
+     ">Roll d20</button>
     </div>
    </div>
 
