@@ -15,7 +15,7 @@ let roundCount = 1;
 let genItemsList = [];
 // end of saving current round's items
 
-let randoChara = (listtt)=>{
+const randoChara = (listtt)=>{
  var rni = Math.floor(Math.random() * listtt.length);
  const randEl = listtt[rni];
  listtt.splice(rni, 1);
@@ -46,9 +46,7 @@ function genPossib(label, listName, reps){
 function displayGenshinWeekly() {
  console.log(genItemsList);
  var longstr = '';
- for (e=0; e<genItemsList.length;e++){
-  longstr += genItemsList[e];
- }
+ for (e=0; e<genItemsList.length;e++){ longstr += genItemsList[e]; }
  html = longstr;
  document.querySelector(".unused").style.display = "block";
  document.querySelector('#jenshin-weekly').innerHTML = longstr;
@@ -61,11 +59,12 @@ function displayGenshinWeekly() {
 
 // this is the function and the button that clears, adds current gen items, and updates the round
 function roundCounter() {
+ genItemsList = [];
  // addToPrevGens();
+ document.querySelector(".unused").style.display = "none";
  roundCount++;
  document.getElementById("roundCountDisplay").innerHTML =
   `<p>Round ${roundCount} of Genshin Weekly`;
- document.querySelector(".unused").style.display = "none";
 }
 
 // function addToPrevGens(){
