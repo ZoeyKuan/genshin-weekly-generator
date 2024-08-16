@@ -7,11 +7,11 @@ let debuffList = ["No Burst", "No Artifacts", "No Food", "3 Star weapon", "Can't
 
 let cryoList = ["Aloy", "Ayaka", "Eula", "Ganyu", "Qiqi", "Shenhe", "Wriothesley", "Charlotte", "Chongyun", "Diona", "Freminet", "Kaeya", "Layla", "Mika", "Rosaria"];
 
-let html = '';
-
-const quotation = document.getElementsByClassName('picdisplay');
 // saving current round's items
+const quotation = document.getElementsByClassName('picdisplay');
+let html = '';
 let currentRoundItems = []; // round count will be the key
+let roundCount = 1;
 let genItemsList = [];
 // end of saving current round's items
 
@@ -21,11 +21,6 @@ let randoChara = (listtt)=>{
  listtt.splice(rni, 1);
  return randEl;
 };
-
-// for (i=0; i<10; i++){
-//  console.log(randoChara(cryoList))
-// }
-let roundCount = 1;
 
 function updateCounters() {
  document.getElementById("characterCounter").innerHTML = "Characters left: " + charaList.length;
