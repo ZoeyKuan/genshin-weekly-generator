@@ -9,7 +9,7 @@
  <title>每个礼拜的'原神'比赛 jenshin wikily</title>
 </head>
 
-<body>
+<body onload="updateCounters()">
  <div class="content">
   <div class="card">
    <!-- <h2>Lazy ppl's Genshin weekly generator</h2> -->
@@ -35,7 +35,7 @@
    <div class="row">
     <div class="column">
      <p>Team A's characters</p>
-     <button onclick="displayTeamA()" class="btn">Team A!!</button>
+     <button onclick="displayGenshinWeekly()" class="btn">Team A!!</button>
     </div>
     <div class="column">
      <p>Team B's characters</p>
@@ -69,7 +69,7 @@
 
   <div id="roundDisplayerthing">
    <div class="unused">
-    <p style="height: 20px;"><img id="picdisplay" src="icons/favicon.png"></p>
+    <p style="height: 20px;"><img class="picdisplay" src="icons/favicon.png"></p>
 
     <a href="#top" style="text-decoration: none;">
      <button onclick="roundCounter()" id="roundCounterbtn">
@@ -78,13 +78,8 @@
     </a>
 
     <div id="roundCountDisplay"></div>
-    <div id="teamA"></div>
-    <div id="teamB"></div>
-    <div id="boss"></div>
-    <div id="debuff"></div>
-    <div id="cryo"></div>
-    <div id="d20"></div>
-    <img id="picdisplay1" src="icons/favicon.png">
+    <div id="jenshin-weekly"></div>
+    <img class="picdisplay" src="icons/favicon.png">
    </div>
   </div>
  </div>

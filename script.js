@@ -7,20 +7,24 @@ let debuffList = ["No Burst", "No Artifacts", "No Food", "3 Star weapon", "Can't
 
 let cryoList = ["Aloy", "Ayaka", "Eula", "Ganyu", "Qiqi", "Shenhe", "Wriothesley", "Charlotte", "Chongyun", "Diona", "Freminet", "Kaeya", "Layla", "Mika", "Rosaria"];
 
-let html;
+let html = '';
 
-document.querySelector("#characterCounter").innerHTML = "Characters left: " + charaList.length;
-document.querySelector("#bossCounter").innerHTML = "Bosses left: " + bossList.length;
-document.querySelector("#cryoCounter").innerHTML = "Cryos left: " + cryoList.length;
-
+const quotation = document.getElementsByClassName('picdisplay');
 // saving current round's items
 let currentRoundItems = {}; // round count will be the key
-
-let generatedItemsList = [];
-// let chara1A = ""; let chara2A = ""; let chara1B = ""; let chara2B = ""; let boss = ""; 
-// let debuffItem1; let debuffItem2; let cryo1; let cryo2; let dice;
+let genItemsList = [];
 // end of saving current round's items
 
+let randoChara = (listtt)=>{
+ var rni = Math.floor(Math.random() * listtt.length);
+ const randEl = listtt[rni];
+ listtt.splice(rni, 1);
+ return randEl;
+};
+
+// for (i=0; i<10; i++){
+//  console.log(randoChara(cryoList))
+// }
 let roundCount = 1;
 
 function updateCounters() {
@@ -29,105 +33,43 @@ function updateCounters() {
  document.getElementById("cryoCounter").innerHTML = "Cryo left: " + cryoList.length;
 }
 
-function displayRoundCount() {
- yes = ``;
- document.getElementById("roundCounterbtn").innerHTML = yes;
+function genPossib(label, listName, reps){
+ var content = '';
+ for (i=0;i<reps;i++){
+  // label would be like 'Team A: '
+  if (reps > 1){
+   content += randoChara(listName) + ' & ';
+   if (i == reps-1){
+    content = content.slice(0, content.length-3);
+   }
+  } else {
+   content = randoChara(listName);
+  }
+ }
+ var h = '<p>'+ label + content+'</p>';
+ genItemsList.push(h);
+ displayGenshinWeekly();
+}
+
+genPossib('Team B: ', charaList, 2);
+// genPossib('Debuff for member 1: ', debuffList, 1);
+// genPossib('Debuff for member 2: ', debuffList, 1);
+genPossib('Cryo for member 1: ', cryoList, 1);
+genPossib('Cryo for member 2: ', cryoList, 1);
+console.log(genItemsList);
+
+function displayGenshinWeekly() {
+ var longstr = '';
+ for (e=0; e<genItemsList.length;e++){
+  longstr += genItemsList[e];
+ }
+ html = longstr;
+ document.querySelector(".unused").style.display = "block";
+ document.querySelector('#jenshin-weekly').innerHTML = longstr;
+ quotation[0].style.display = "inline";
+ quotation[1].style.display = "inline";
  idk = `<p>Round ${roundCount} of Genshin weekly</p>`;
  document.querySelector("#roundCountDisplay").innerHTML = idk;
-}
-
-function displayTeamA() {
- chara1A = charaList[Math.floor(Math.random() * charaList.length)];
- chara2A = charaList[Math.floor(Math.random() * charaList.length)];
- html = `<p>Team A: ${chara1A} & ${chara2A}</p>`;
-
- // to make the content visible after 'deletion'
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#teamA').innerHTML = html;
- charaList.splice(chara1A, 1); charaList.splice(chara2A, 1);
- // unhiding the quotation marks at the same time as generating the teams
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
- updateCounters();
-}
-
-function displayTeamB() {
- chara1B = charaList[Math.floor(Math.random() * charaList.length)];
- chara2B = charaList[Math.floor(Math.random() * charaList.length)];
-
- wow = `<p>Team B: ${chara1B} & ${chara2B}</p>`;
- document.getElementById("teamdisplay").className = "unused";
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#teamB').innerHTML = wow;
- charaList.splice(chara1B, 1); charaList.splice(chara2B, 1);
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
- updateCounters();
-}
-
-function genBoss() {
-
- boss = bossList[Math.floor(Math.random() * bossList.length)];
- howtoKill = [
-  'Punch', 'F***', 'Kill', 'Dropkick', 'Abusing', 'Fight'
- ];
- html = `<p>${howtoKill[Math.floor(Math.random() * howtoKill.length)]} ${boss}</p>`;
-
- // to make the content visible after 'deletion'
- document.getElementById("teamdisplay").className = "unused";
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#boss').innerHTML = html;
- bossList.splice(boss, 1);
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
- updateCounters();
-}
-
-function genDebuff() {
-
- debuffItem1 = debuffList[Math.floor(Math.random() * debuffList.length)];
- debuffItem2 = debuffList[Math.floor(Math.random() * debuffList.length)];
- html = `<p>Debuff for member 1: ${debuffItem1}<br>
-    Debuff for member 2: ${debuffItem2}</p>`;
-
- // to make the content visible after 'deletion'
- document.getElementById("teamdisplay").className = "unused";
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#debuff').innerHTML = html;
- debuffList.splice(debuffItem1, 1); debuffList.splice(debuffItem2, 1);
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
- updateCounters();
-}
-
-function genCryo() {
-
- cryo1 = cryoList[Math.floor(Math.random() * cryoList.length)];
- cryo2 = cryoList[Math.floor(Math.random() * cryoList.length)];
- html = `<p>Cryo for member 1: ${cryo1}.<br>Cryo for member 2: ${cryo2}.</p>`;
-
- // to make the content visible after 'deletion'
- document.getElementById("teamdisplay").className = "unused";
- document.querySelector(".unused").style.display = "block";
-
- document.querySelector('#cryo').innerHTML = html;
- cryoList.splice(cryo1, 1); cryoList.splice(cryo2, 1);
- document.getElementById("picdisplay").style.display = "inline";
- document.getElementById("picdisplay1").style.display = "inline";
-
- displayRoundCount();
  updateCounters();
 }
 
