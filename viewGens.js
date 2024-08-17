@@ -3,7 +3,7 @@ let loaded = () => {
  let str = '';
  for (e=0; e<data.length; e++){
   round = e+1;
-  str += '<p>Round '+ round.toString() + '</p>' + data[e] + '</br>';
+  str += '<div class="notes"><p>Round '+ round.toString() + '</br>' + data[e] + '</p></div>';
   console.log(str)
  }
  return str;

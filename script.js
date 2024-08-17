@@ -1,3 +1,4 @@
+
 // start of index's js
 let charaList = ["Albedo", "Aloy", "Amber", "Ayaka", "Ayato", "Barbara", "Beidou", "Bennett", "Baizhu", "Candace", "Childe", "Chongyun", "Collei", "Cyno", "Charlotte", "Chevreuse", "Diluc", "Diona", "Dori", "Dehya", "Eula", "Faruzan", "Fischl", "Furina", "Ganyu", "Gorou", "Heizou", "Hu Tao", "Itto", "Jean", "Kaeya", "Kazuha", "Keqing", "Klee", "Kiara", "Kaveh", "Kokomi", "Kuki Shinobu", "Layla", "Lisa", "Mika", "Mona", "Navia", "Nahida", "Nilou", "Ningguang", "Noelle", "Qiqi", "Raiden", "Razor", "Rosaria", "Sara", "Sayu", "Shenhe", "Sucrose", "Thoma", "Tighnari", "Traveller", "Venti", "Wanderer", "Wriothesley", "Xiangling", "Xiao", "Xingqiu", "Xinyan", "Xianyun", "Yae Miko", "Yanfei", "Yelan", "Yoimiya", "Yun Jin", "Yao Yao", "Gaming", "Zhongli"];
 
@@ -37,7 +38,7 @@ function genPossib(label, listName, reps) {
    if (i == reps - 1) { content = content.slice(0, content.length - 3); }
   } else { content = randoChara(listName); }
  }
- var h = '<p>' + label + content + '</p>';
+ var h = label + content + '</br>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
@@ -47,7 +48,7 @@ function displayGenshinWeekly() {
  var longstr = '';
  for (e = 0; e < genItemsList.length; e++) { longstr += genItemsList[e]; }
  document.querySelector(".unused").style.display = "block";
- document.querySelector('#jenshin-weekly').innerHTML = longstr;
+ document.querySelector('#jenshin-weekly').innerHTML = '<p>' + longstr + '</p>';
  html = longstr;
  quotation[0].style.display = "inline";
  quotation[1].style.display = "inline";

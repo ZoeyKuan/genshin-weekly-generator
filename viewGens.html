@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,37 @@
  https://img.icons8.com/?size=100&id=AsChNoRx9etU&format=png&color=000000
  ">
  <link rel="stylesheet" href="style.css">
+ <style>
+  body{
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+  .body {
+   display: flex;
+   width: 800px;
+   flex-direction: column;
+   row-gap: 50px;
+  }
+
+  .notes {
+   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+   background-color: #e8dcbf;
+   border-radius: 0.8em;
+   filter: brightness(110%);
+  }
+
+  #displayingAllRounds{
+   display: flex; flex-direction: column; row-gap: 1.5em;
+  }
+ </style>
 </head>
+
 <body>
 
- <div style="max-width: 900px; padding:20px; margin:auto; justify-content: center; align-items: center;">
-  <div class="card">
+ <div class="body">
+  <div class="card" style="display: flex; flex-direction: column; row-gap: 0.5em;">
    <h2>All Rounds in this Genshin Weekly</h2>
    <div id="displayingAllRounds">
     <!-- this actually can display with elementbyid and queryselector -->
@@ -23,14 +50,17 @@
     Debuff: <span id="debuffA"></span> <span id="debuffB"></span><br><br>
    </div>
 
-   <button onclick="window.location.href = 'index.html';">Return to generator</button>
-   <button onclick="localStorage.clear()">End genshin weekly? (this button clears all results shown here)</button>
-   <button id="dum">dummy button</button>
-  
+   <p>
+    <button onclick="window.location.href = 'index.html';">Return to generator</button>
+    <button onclick="localStorage.clear()">End genshin weekly? (this button clears all results shown here)</button>
+    <button id="dum">dummy button</button>
+   </p>
+
   </div>
  </div>
- 
+
  <script src="viewGens.js"></script>
 
 </body>
+
 </html>
