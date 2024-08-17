@@ -46,7 +46,6 @@ function displayGenshinWeekly() {
  console.log(genItemsList);
  var longstr = '';
  for (e = 0; e < genItemsList.length; e++) { longstr += genItemsList[e]; }
- html = longstr;
  document.querySelector(".unused").style.display = "block";
  document.querySelector('#jenshin-weekly').innerHTML = longstr;
  html = longstr;
@@ -60,34 +59,13 @@ function displayGenshinWeekly() {
 // clears + updates round + stores current round
 function roundCounter() {
  genItemsList = [];
- addToPrevGens();
+ currentRoundItems.push(html);
+ localStorage.setItem('prevRounds', JSON.stringify(currentRoundItems));
+ html = '';
  document.querySelector(".unused").style.display = "none";
  roundCount++;
  document.getElementById("roundCountDisplay").innerHTML =
   `<p>Round ${roundCount} of Genshin Weekly`;
-}
-
-function addToPrevGens() {
- currentRoundItems.push({roundCount: html});
- localStorage.setItem('prevRounds', JSON.stringify(currentRoundItems));
- html = '';
- console.log(localStorage.getItem('prevRounds'));
- // adding local storage here so that next page we can see the previous generations
- // var myObject = JSON.stringify(currentRoundItems);
- // localStorage.setItem('myObject', myObject);
- // maybe add the round counter here? so that i can
- // 1) continue the round count here
- // 2) print out all object as many times as the total rounds
-}
-
-function ttest() {
- console.log(currentRoundItems);
-
- // getting the items from localstorage
- var huh = localStorage.getItem('myObject');
- var myObject = JSON.parse(huh);
- console.log("local storage sht is " + myObject[1]); // is undefined or object Object
- console.log(myObject[1]["characters"]); // for some reason able to recall these items if theres a key value
 }
 
 // start of viewGens.html's js

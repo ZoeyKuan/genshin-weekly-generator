@@ -34,7 +34,7 @@ body {
  text-align: center;
  border-radius: 5px;
  box-shadow: 4px 4px #24574b;
- width: min-content;
+ /* width: min-content; */
  margin: auto;
  margin-bottom: 10px;
 }
