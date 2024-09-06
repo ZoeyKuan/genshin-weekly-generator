@@ -1,4 +1,3 @@
-
 // start of index's js
 let charaList = ["Albedo", "Aloy", "Amber", "Ayaka", "Ayato", "Barbara", "Beidou", "Bennett", "Baizhu", "Candace", "Childe", "Chongyun", "Collei", "Cyno", "Charlotte", "Chevreuse", "Diluc", "Diona", "Dori", "Dehya", "Eula", "Faruzan", "Fischl", "Furina", "Ganyu", "Gorou", "Heizou", "Hu Tao", "Itto", "Jean", "Kaeya", "Kazuha", "Keqing", "Klee", "Kiara", "Kaveh", "Kokomi", "Kuki Shinobu", "Layla", "Lisa", "Mika", "Mona", "Navia", "Nahida", "Nilou", "Ningguang", "Noelle", "Qiqi", "Raiden", "Razor", "Rosaria", "Sara", "Sayu", "Shenhe", "Sucrose", "Thoma", "Tighnari", "Traveller", "Venti", "Wanderer", "Wriothesley", "Xiangling", "Xiao", "Xingqiu", "Xinyan", "Xianyun", "Yae Miko", "Yanfei", "Yelan", "Yoimiya", "Yun Jin", "Yao Yao", "Gaming", "Zhongli"];
 
@@ -15,6 +14,23 @@ let currentRoundItems = []; // round count will be the key
 let roundCount = 1;
 let genItemsList = [];
 // end of saving current round's items
+
+const alrdyGenerated = ()=>{
+ const data = JSON.parse(localStorage.getItem('alrdyGenerated'));
+ const prev = JSON.parse(localStorage.getItem('prevRounds'));
+ console.log('huh?', prev)
+ if (data != undefined) {
+  charaList = data.chara;
+  bossList = data.boss;
+  debuffList = data.debuff;
+  cryoList = data.cryo;
+  currentRoundItems = prev;
+  roundCount = prev.length + 1;
+  updateCounters();
+ } else return 'No previous generations';
+ return data;
+};
+alrdyGenerated();
 
 const randoChara = (listtt) => {
  var rni = Math.floor(Math.random() * listtt.length);
@@ -63,10 +79,27 @@ function roundCounter() {
  currentRoundItems.push(html);
  localStorage.setItem('prevRounds', JSON.stringify(currentRoundItems));
  html = '';
+ let savingCurrentCounters = {
+  chara: charaList,
+  boss: bossList,
+  debuff: debuffList,
+  cryo: cryoList
+ };
+ localStorage['alrdyGenerated'] = JSON.stringify(savingCurrentCounters);
  document.querySelector(".unused").style.display = "none";
  roundCount++;
  document.getElementById("roundCountDisplay").innerHTML =
   `<p>Round ${roundCount} of Genshin Weekly`;
 }
 
-// start of viewGens.html's js
+if (bossList.length < 1) {
+ window.location.href = 'viewGens.html';
+ alert('You have reached the end of Genshin Weekly. ')
+}
+
+document.addEventListener('click', ()=>{
+ if (roundCount > 8) {
+  window.location.href = 'viewGens.html';
+  alert('You have reached the end of Genshin Weekly. ')
+ }
+})

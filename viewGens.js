@@ -1,5 +1,5 @@
 const data = JSON.parse(localStorage.getItem('prevRounds'));
-let loaded = () => {
+const loaded = () => {
  let str = '';
  for (e=0; e<data.length; e++){
   round = e+1;

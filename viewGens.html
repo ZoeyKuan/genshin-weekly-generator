@@ -26,12 +26,21 @@
   .notes {
    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
    background-color: #e8dcbf;
-   border-radius: 0.8em;
+   border-radius: 0.5rem;
    filter: brightness(110%);
   }
 
   #displayingAllRounds{
-   display: flex; flex-direction: column; row-gap: 1.5em;
+   padding: 1rem 2rem 3rem 2rem;
+   display: flex; flex-direction: column;
+   row-gap: 2rem;
+   height: 30em;
+   overflow: auto;
+  }
+
+  .nothing{
+   display: flex; justify-content: center; align-items: center;
+   height: 100%;
   }
  </style>
 </head>
@@ -39,20 +48,17 @@
 <body>
 
  <div class="body">
-  <div class="card" style="display: flex; flex-direction: column; row-gap: 0.5em;">
-   <h2>All Rounds in this Genshin Weekly</h2>
+  <div class="card" style="padding: 0; display: flex; flex-direction: column; row-gap: 0.5em;">
+   <h2 style="margin: 2rem 2rem 1rem;">All Rounds in this Genshin Weekly</h2>
    <div id="displayingAllRounds">
-    <!-- this actually can display with elementbyid and queryselector -->
-    Round <span id="round"></span><br>
-    Team A: <span id="teamA"></span><br>
-    Team B: <span id="teamB"></span><br>
-    Boss: <span id="boss"></span><br>
-    Debuff: <span id="debuffA"></span> <span id="debuffB"></span><br><br>
+    <div class="nothing">
+     <p>You have not generated anything!</p>
+    </div>
    </div>
 
    <p>
     <button onclick="window.location.href = 'index.html';">Return to generator</button>
-    <button onclick="localStorage.clear()">End genshin weekly? (this button clears all results shown here)</button>
+    <button onclick="localStorage.clear(); window.location.href = 'index.html';">End genshin weekly? (this button clears all results shown here)</button>
     <button id="dum">dummy button</button>
    </p>
 

@@ -1,0 +1,8 @@
+script.js
+[
+ DONE ~~1. characters left remembers which characters have already been generated.~~
+
+ 2. able to edit the generation in view and not view.
+
+ DONE ~~3. when there are no more bosses left, prevent the user from clicking anything else and tell the user that genshin weekly has finished.~~
+]

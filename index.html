@@ -14,7 +14,7 @@
 <body onload="updateCounters()">
  <div class="content">
   <div class="card">
-   <h2 id="top">Genshin weekly generator</h2>
+   <h2>Genshin weekly generator</h2>
 
    <div class="weirdass" style="width: min-content;">Counters</div>
    <div class="counters">
@@ -74,7 +74,7 @@
    <div class="unused">
     <p style="height: 20px;"><img class="picdisplay" src="icons/favicon.png"></p>
 
-    <a href="#top" style="text-decoration: none;">
+    <a onclick="document.querySelector('.content').scrollIntoView({behaviour: 'smooth', alignTotop: true})" style="text-decoration: none;">
      <button onclick="roundCounter()" id="roundCounterbtn">
       Clear and proceed to next round
      </button>
