@@ -43,6 +43,12 @@ body {
  margin-bottom: 10px;
 }
 
+button[class='weirdass']:hover {
+ background-color: #24574b;
+ border: #3e9f85 solid 2px;
+ box-shadow: 4px 4px #3b3e86;
+}
+
 /* may have the same styling but are separate IDs just for javascript selction */
 #characterCounter,
 #bossCounter,
@@ -81,17 +87,19 @@ h2 {
 }
 
 .btn {
- height: 50px;
  width: 150px;
  font-family: "Edu VIC WA NT Beginner", cursive;
  font-size: 18px;
  color: #ffffff;
  background-color: #24574b;
  box-shadow: 4px 4px #4b3522;
- padding: 5px;
+ padding: 0.5rem;
  border-radius: 5px;
 }
 
+.btn:hover{
+ background-color: #3e9f85;
+}
 
 .card {
  padding: 15px 30px 15px 30px;
