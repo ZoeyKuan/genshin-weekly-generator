@@ -66,11 +66,8 @@ body {
 }
 
 .content {
- max-width: 600px;
- padding: 20px;
- margin: auto;
- justify-content: center;
- align-items: center;
+ width: 45rem;
+ height: 10rem;
 }
 
 h2 {
