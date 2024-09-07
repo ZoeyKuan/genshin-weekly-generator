@@ -54,7 +54,7 @@ function genPossib(label, listName, reps) {
    if (i == reps - 1) { content = content.slice(0, content.length - 3); }
   } else { content = randoChara(listName); }
  }
- var h = label + content + '</br>';
+ var h = '<p>'+ label + content + '</p>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
@@ -64,7 +64,7 @@ function displayGenshinWeekly() {
  var longstr = '';
  for (e = 0; e < genItemsList.length; e++) { longstr += genItemsList[e]; }
  document.querySelector(".unused").style.display = "block";
- document.querySelector('#jenshin-weekly').innerHTML = '<p>' + longstr + '</p>';
+ document.querySelector('#jenshin-weekly').innerHTML = longstr;
  html = longstr;
  quotation[0].style.display = "inline";
  quotation[1].style.display = "inline";
