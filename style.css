@@ -7,6 +7,9 @@ body {
  display: flex;
  align-items: center;
  justify-content: center;
+ background-image: url(
+  'https://steamuserimages-a.akamaihd.net/ugc/1673610360171378633/F063BB13044020A4439E53CBC665EA6EB9A72654/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+ background-size: cover;
 }
 
 .counters {
