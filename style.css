@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Playwrite+HU:wght@100..400&display=swap');
 body {
  background-color: #3b3e86;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .counters {
@@ -73,7 +77,6 @@ button[class='weirdass']:hover {
 
 .content {
  width: 45rem;
- height: 10rem;
 }
 
 h2 {
@@ -155,7 +158,7 @@ img {
 
 .body {
  display: flex;
- width: 800px;
+ width: 45rem;
  flex-direction: column;
  row-gap: 50px;
 }
