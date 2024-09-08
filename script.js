@@ -6,6 +6,7 @@ let bossList = ["Guardian of Apep's Oasis", "Azhdaha", "Magatsu Mitake Narukami 
 let debuffList = ["No Burst", "No Artifacts", "No Food", "3 Star weapon", "Can't use e skill", "Double debuff"];
 
 let cryoList = ["Aloy", "Ayaka", "Eula", "Ganyu", "Qiqi", "Shenhe", "Wriothesley", "Charlotte", "Chongyun", "Diona", "Freminet", "Kaeya", "Layla", "Mika", "Rosaria"];
+// export{charaList, bossList, debuffList, cryoList};
 
 // saving current round's items
 const quotation = document.getElementsByClassName('picdisplay');
@@ -44,7 +45,7 @@ function updateCounters() {
  document.getElementById("bossCounter").innerHTML = "Bosses left: " + bossList.length;
  document.getElementById("cryoCounter").innerHTML = "Cryo left: " + cryoList.length;
 }
-
+document.addEventListener('DOMContentLoaded', updateCounters);
 function genPossib(label, listName, reps) {
  var content = '';
  for (i = 0; i < reps; i++) {
@@ -54,7 +55,9 @@ function genPossib(label, listName, reps) {
    if (i == reps - 1) { content = content.slice(0, content.length - 3); }
   } else { content = randoChara(listName); }
  }
- var h = '<p>'+ label + content + '</p>';
+ let conv = Array.from(label);
+ let id = conv.splice(label.indexOf(' '), 1, '-');
+ var h = '<p id="'+ label +'">'+ label + content + '</p>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
