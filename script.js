@@ -57,7 +57,7 @@ function genPossib(label, listName, reps) {
  }
  let conv = Array.from(label);
  let id = conv.splice(label.indexOf(' '), 1, '-');
- var h = '<p id="'+ id +'">'+ label + content + '</p>';
+ var h = '<p class="'+ id +'">'+ label + content + '</p>';
  genItemsList.push(h);
  displayGenshinWeekly();
 }
