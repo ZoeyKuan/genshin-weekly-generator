@@ -80,6 +80,9 @@ function displayGenshinWeekly() {
 function roundCounter() {
  genItemsList = [];
  currentRoundItems.push(html);
+ // why not add a list of all the current round items so that
+ // you can remove the current items from the list to get the
+ // current and updated list
  localStorage.setItem('prevRounds', JSON.stringify(currentRoundItems));
  html = '';
  let savingCurrentCounters = {
